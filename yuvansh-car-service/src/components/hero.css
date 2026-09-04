@@ -1,0 +1,332 @@
+/* HERO */
+
+.hero{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    background:#031120;
+    display:flex;
+    align-items:center;
+    color:white;
+}
+
+/* Background */
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at right,#ff6b0015,transparent 50%),
+    linear-gradient(90deg,#031120 20%,rgba(3,17,32,.35) 60%,#031120 100%);
+}
+
+/* CAR IMAGE */
+
+.hero-car-bg{
+    position:absolute;
+    inset:0;
+    background-image:url("/hero.png");
+    background-repeat:no-repeat;
+    background-position:right center;
+    background-size:78%;
+    z-index:1;
+    animation:carFloat 5s ease-in-out infinite;
+}
+
+/* Floating animation */
+
+@keyframes carFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+/* Overlay */
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(90deg,
+    rgba(3,17,32,.95) 10%,
+    rgba(3,17,32,.72) 35%,
+    rgba(3,17,32,.25) 55%,
+    rgba(3,17,32,.82) 100%);
+    z-index:2;
+}
+
+/* Orange glow */
+
+.hero-glow{
+    position:absolute;
+    width:380px;
+    height:380px;
+    border-radius:50%;
+    filter:blur(120px);
+    background:#ff6b00;
+    opacity:.15;
+    z-index:2;
+}
+
+.glow1{
+    left:-150px;
+    top:-120px;
+    animation:glow1 8s ease-in-out infinite;
+}
+
+.glow2{
+    right:-120px;
+    bottom:-120px;
+    animation:glow2 8s ease-in-out infinite;
+}
+
+@keyframes glow1{
+50%{
+transform:scale(1.2);
+}
+}
+
+@keyframes glow2{
+50%{
+transform:translateY(-20px) scale(1.15);
+}
+}
+
+/* Speed Lights */
+
+.speed{
+    position:absolute;
+    height:2px;
+    width:280px;
+    background:linear-gradient(90deg,transparent,#ff6b00,transparent);
+    opacity:.3;
+    z-index:2;
+}
+
+.speed1{
+    top:32%;
+    animation:speed 8s linear infinite;
+}
+
+.speed2{
+    top:68%;
+    animation:speed 10s linear infinite reverse;
+}
+
+@keyframes speed{
+
+from{
+transform:translateX(-300px);
+}
+
+to{
+transform:translateX(1800px);
+}
+
+}
+
+/* CONTENT */
+
+.hero-content-wrap{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:1350px;
+    margin:auto;
+    padding:120px 40px 60px;
+}
+
+.hero-content{
+    max-width:560px;
+}
+
+.hero-tag{
+    color:#ff9833;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.hero-content h1{
+    font-size:78px;
+    line-height:1;
+    margin:20px 0;
+    font-weight:800;
+}
+
+.hero-content h1 span{
+    color:#ff6b00;
+}
+
+.hero-desc{
+    color:#d0d8df;
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:35px;
+}
+
+.btn-orange{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#ff6b00;
+    color:white;
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:999px;
+    font-weight:700;
+    box-shadow:0 0 35px rgba(255,107,0,.4);
+    transition:.3s;
+}
+
+.btn-orange:hover{
+    transform:translateY(-4px);
+}
+
+.btn-glass{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px 30px;
+    border-radius:999px;
+    color:white;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(12px);
+}
+
+/* STATS */
+
+.hero-stats{
+    display:flex;
+    gap:45px;
+    margin-top:60px;
+}
+
+.hero-stats h3{
+    color:#ff6b00;
+    font-size:34px;
+}
+
+.hero-stats span{
+    color:#b9c3cd;
+}
+
+/* Scroll Mouse */
+
+.scroll-mouse{
+    position:absolute;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+    z-index:5;
+}
+
+.scroll-mouse span{
+    display:block;
+    width:24px;
+    height:42px;
+    border:2px solid rgba(255,255,255,.3);
+    border-radius:20px;
+    position:relative;
+}
+
+.scroll-mouse span::before{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#ff6b00;
+    left:50%;
+    transform:translateX(-50%);
+    animation:wheel 2s infinite;
+}
+
+@keyframes wheel{
+
+0%{
+top:8px;
+opacity:1;
+}
+
+100%{
+top:24px;
+opacity:0;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+min-height:100vh;
+}
+
+.hero-car-bg{
+background-size:150%;
+background-position:center top;
+opacity:.55;
+animation:none;
+}
+
+.hero-overlay{
+background:linear-gradient(to bottom,
+rgba(3,17,32,.55) 0%,
+rgba(3,17,32,.9) 55%,
+#031120 100%);
+}
+
+.hero-content-wrap{
+padding:110px 22px 60px;
+}
+
+.hero-content{
+max-width:100%;
+text-align:center;
+}
+
+.hero-content h1{
+font-size:48px;
+}
+
+.hero-desc{
+font-size:16px;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.btn-orange,
+.btn-glass{
+width:100%;
+justify-content:center;
+}
+
+.hero-stats{
+justify-content:space-between;
+gap:15px;
+margin-top:45px;
+}
+
+.hero-stats h3{
+font-size:24px;
+}
+
+}
